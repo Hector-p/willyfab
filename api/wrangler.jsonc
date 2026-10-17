@@ -7,8 +7,11 @@
   "observability": {
     "enabled": true
   },
+  "routes": [
+    { "pattern": "api.willyfab.com", "custom_domain": true }
+  ],
   "vars": {
-    "CORS_ORIGINS": "http://localhost:5173,http://127.0.0.1:5173,https://willyfab.com,https://www.willyfab.com",
+    "CORS_ORIGINS": "http://localhost:5173,http://127.0.0.1:5173,https://willyfab.com,https://www.willyfab.com,https://frontend.abdulganiu974.workers.dev",
     "ADMIN_TOKEN_TTL_MINUTES": "720",
     "MAX_UPLOAD_BYTES": "5242880",
     "R2_PUBLIC_BASE_URL": "https://media.willyfab.com"
