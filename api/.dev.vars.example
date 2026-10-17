@@ -1,0 +1,8 @@
+# Local secrets for `wrangler dev`. Copy to .dev.vars and fill in. Never commit .dev.vars.
+ADMIN_EMAIL=you@example.com
+ADMIN_PASSWORD_HASH=
+SESSION_SECRET=
+CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
+R2_PUBLIC_BASE_URL=http://localhost:8787/media
+# Local Postgres (same database the Python backend uses). Wrangler reads this for the HYPERDRIVE binding.
+CLOUDFLARE_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE=postgresql://USER:PASSWORD@127.0.0.1:5433/DATABASE
