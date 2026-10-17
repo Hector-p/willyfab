@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import "./base.css";
+@import "./shell.css";
+@import "./home.css";
+@import "./about.css";
+@import "./services.css";
+@import "./projects.css";
+@import "./gallery.css";
+@import "./legal.css";
+@import "./contact.css";
+@import "./admin.css";

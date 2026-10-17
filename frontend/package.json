@@ -1,0 +1,45 @@
+{
+	"name": "frontend",
+	"version": "0.1.0",
+	"private": true,
+	"packageManager": "npm",
+	"dependencies": {
+		"@hookform/resolvers": "^5.9.1",
+		"@radix-ui/react-label": "^2.1.17",
+		"@radix-ui/react-slot": "^1.5.0",
+		"@vinext/cloudflare": "latest",
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"lucide-react": "^1.57.0",
+		"motion": "^14.2.0",
+		"react": "latest",
+		"react-dom": "latest",
+		"react-hook-form": "^7.90.0",
+		"react-server-dom-webpack": "latest",
+		"tailwind-merge": "^3.7.0",
+		"vinext": "^1.2.1",
+		"zod": "^3.25.76"
+	},
+	"devDependencies": {
+		"@cloudflare/vite-plugin": "beta",
+		"@tailwindcss/postcss": "latest",
+		"@types/node": "latest",
+		"@types/react": "latest",
+		"@types/react-dom": "latest",
+		"@vitejs/plugin-react": "latest",
+		"@vitejs/plugin-rsc": "latest",
+		"cf": "^1.0.0-beta.18",
+		"tailwindcss": "latest",
+		"typescript": "latest",
+		"vite": "8.3.0"
+	},
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"start": "vite preview",
+		"deploy": "vinext-cloudflare deploy",
+		"preview": "npm run build && npm run start --",
+		"cf-typegen": "cf workers types"
+	}
+}
