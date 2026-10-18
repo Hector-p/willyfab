@@ -1,4 +1,4 @@
-const FALLBACK_MESSAGE = "Site under maintainance, Check back later";
+const FALLBACK_MESSAGE = "Site under maintenance, Check back later";
 
 export function MaintenanceScreen({ message }: { message: string | null }) {
   return (
