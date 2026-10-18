@@ -259,10 +259,11 @@
 
 @media (max-width: 700px) {
   .wf-footer { gap: 18px; grid-template-columns: 1fr 1fr; padding: 27px 7% 20px; }
-  .wf-footer p { grid-column: 1 / -1; grid-row: 2; }
+  .wf-footer p { grid-column: 1 / -1; grid-row: 2; font-size: 13px; }
   .wf-footer nav { grid-column: 1 / -1; grid-row: 3; }
+  .wf-footer nav a, .wf-instagram { font-size: 12px; }
+  .wf-footer-legal { flex-wrap: wrap; font-size: 11px; grid-row: 4; }
   .wf-instagram { grid-column: 2; grid-row: 1; }
-  .wf-footer-legal { flex-wrap: wrap; grid-row: 4; }
 }
 
 @media (max-width: 640px) {

@@ -65,10 +65,6 @@ export function HeroSlideshow() {
             transition={{ duration: reduceMotion ? 0 : 1.15, ease: [0.22, 1, 0.36, 1] }}
           />
         </AnimatePresence>
-        <div aria-live="off" className="home-slide-caption" key={slide.caption}>
-          <span>{slide.caption}</span>
-          <span>{String(activeIndex + 1).padStart(2, "0")} / {String(landingSlides.length).padStart(2, "0")}</span>
-        </div>
         <div aria-label="Slideshow navigation" className="home-slide-controls">
           <button aria-label="Previous image" className="slide-arrow" onClick={() => moveSlide(-1)} type="button">
             <ArrowLeft aria-hidden="true" size={16} />
@@ -89,9 +85,7 @@ export function HeroSlideshow() {
             <ArrowRight aria-hidden="true" size={16} />
           </button>
         </div>
-        <div aria-hidden="true" className="slide-progress"><span key={slide.src} /></div>
       </div>
-      <span className="home-image-rail">ENGINEERING / FABRICATION / SYSTEMS</span>
     </div>
   );
 }
