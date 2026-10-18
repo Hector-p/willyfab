@@ -7,7 +7,7 @@ import { getPublicProject } from "../../lib/public-content";
 
 type ProjectDetailProps = { params: Promise<{ slug: string }> };
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: ProjectDetailProps): Promise<Metadata> {
   const { slug } = await params;

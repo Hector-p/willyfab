@@ -5,7 +5,7 @@ import { Reveal } from "../components/reveal";
 import { PlaceholderImage } from "../components/placeholder-image";
 import { getPublicBoardMembers } from "../lib/public-content";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "About the Company",

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Project portfolio for Willyfab Engineering.",
 };
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export default async function ProjectsPage() {
   const projectContent = await getPublicProjects();

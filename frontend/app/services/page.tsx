@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Explore Willyfab Engineering's agro-processing, fabrication and industrial services.",
 };
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 function slugify(value: string) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");

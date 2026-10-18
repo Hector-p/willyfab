@@ -50,7 +50,6 @@ type ApiGalleryImage = {
 };
 
 const useDevelopmentPreview = process.env.NODE_ENV !== "production";
-const REVALIDATE_SECONDS = 60;
 export const apiBase = (process.env.NEXT_PUBLIC_API_URL || (useDevelopmentPreview ? "http://127.0.0.1:8000" : "")).replace(/\/$/, "");
 
 function unavailable<T>(preview: T[]): PageContent<T> {
@@ -61,7 +60,7 @@ function unavailable<T>(preview: T[]): PageContent<T> {
 
 async function request<T>(path: string): Promise<T> {
   if (!apiBase) throw new Error("Public API URL is not configured");
-  const response = await fetch(`${apiBase}/api/v1${path}`, { next: { revalidate: REVALIDATE_SECONDS } });
+  const response = await fetch(`${apiBase}/api/v1${path}`, { cache: "no-store" });
   if (!response.ok) throw new Error(`Public API request failed (${response.status})`);
   return response.json() as Promise<T>;
 }

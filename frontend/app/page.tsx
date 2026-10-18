@@ -6,7 +6,7 @@ import { HeroSlideshow } from "./components/hero-slideshow";
 import { landingSlides } from "./data/landing-slides";
 import { getPublicProjects, getPublicServices } from "./lib/public-content";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   preload(landingSlides[0].src, { as: "image", fetchPriority: "high" });
