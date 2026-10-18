@@ -18,8 +18,8 @@ export default async function Home() {
     <main className="wf-main">
       <section className="home-hero">
         <div className="home-hero-copy">
-          <Reveal><p className="wf-kicker"><span /> OWERRI, NIGERIA <i>—</i> ENGINEERING & FABRICATION</p></Reveal>
-          <Reveal delay={0.08}><h1>Engineering<br />that gets to <em>work.</em></h1></Reveal>
+          <Reveal><h1>Engineering<br />that gets to <em>work.</em></h1></Reveal>
+          <Reveal delay={0.08}><p className="wf-kicker"><span /> OWERRI, NIGERIA <i>—</i> ENGINEERING & FABRICATION</p></Reveal>
           <Reveal delay={0.16}><p className="home-lede">From processing plants to precision steelwork, Willyfab builds practical systems for the work that matters.</p></Reveal>
           <Reveal delay={0.24}>
             <div className="home-hero-actions">
