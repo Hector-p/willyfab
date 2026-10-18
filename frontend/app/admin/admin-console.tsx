@@ -3,17 +3,18 @@
 import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Images, LogOut, MessageSquare, Newspaper, Users, Wrench } from "lucide-react";
+import { Images, LogOut, MessageSquare, Newspaper, Power, Users, Wrench } from "lucide-react";
 import { z } from "zod";
 
 import { SESSION_KEY, describeError, signIn } from "./admin-api";
 import { BoardPanel } from "./board-panel";
 import { GalleryPanel } from "./gallery-panel";
 import { InquiriesPanel } from "./inquiries-panel";
+import { MaintenancePanel } from "./maintenance-panel";
 import { ProjectsPanel } from "./projects-panel";
 import { ServicesPanel } from "./services-panel";
 
-type Section = "board" | "projects" | "services" | "gallery" | "inquiries";
+type Section = "board" | "projects" | "services" | "gallery" | "inquiries" | "site";
 
 const SECTIONS: { id: Section; label: string; icon: typeof Users }[] = [
   { id: "board", label: "Board members", icon: Users },
@@ -21,7 +22,9 @@ const SECTIONS: { id: Section; label: string; icon: typeof Users }[] = [
   { id: "services", label: "Services", icon: Wrench },
   { id: "gallery", label: "Gallery", icon: Images },
   { id: "inquiries", label: "Enquiries", icon: MessageSquare },
+  { id: "site", label: "Site status", icon: Power },
 ];
+
 
 const loginSchema = z.object({
   email: z.string().trim().email("Enter a valid email address."),
@@ -182,6 +185,7 @@ export function AdminConsole() {
         {section === "services" ? <ServicesPanel onAuthLost={handleAuthLost} token={token} /> : null}
         {section === "gallery" ? <GalleryPanel onAuthLost={handleAuthLost} token={token} /> : null}
         {section === "inquiries" ? <InquiriesPanel onAuthLost={handleAuthLost} token={token} /> : null}
+        {section === "site" ? <MaintenancePanel onAuthLost={handleAuthLost} token={token} /> : null}
       </main>
     </div>
   );

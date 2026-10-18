@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteChrome } from "./components/site-chrome";
 import { SiteFooter } from "./components/site-footer";
 import { SiteHeader } from "./components/site-header";
+import { getSiteStatus } from "./lib/public-content";
 import "./styles/main.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
@@ -29,14 +30,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const status = await getSiteStatus();
   return (
     <html data-scroll-behavior="smooth" lang="en">
       <body>
-        <SiteChrome footer={<SiteFooter />} header={<SiteHeader />}>
+        <SiteChrome
+          footer={<SiteFooter />}
+          header={<SiteHeader />}
+          maintenance={status.maintenance ? { message: status.message } : null}
+        >
           {children}
         </SiteChrome>
       </body>
     </html>
   );
 }
+

@@ -21,6 +21,7 @@ import {
   offsetQuery,
   projectWriteSchema,
   serviceWriteSchema,
+  siteStatusWriteSchema,
 } from '../schemas.ts';
 import { deleteStoredObject, storageKeyForUrl, storeImage, UploadRejected } from '../storage.ts';
 import { buildWhere, type Filter } from '../sql.ts';
@@ -240,6 +241,31 @@ adminRoutes.patch('/inquiries/:id', async (c) => {
     return result.rows[0];
   });
   if (!row) throw new HttpError(404, 'Inquiry not found');
+  return c.json(row);
+});
+
+const SITE_STATUS_ADMIN = 'maintenance_mode, maintenance_message, updated_at';
+
+adminRoutes.get('/site-status', async (c) => {
+  const row = await withDb(c.env, async (db) => {
+    const result = await db.query(`SELECT ${SITE_STATUS_ADMIN} FROM site_settings WHERE id = 1`);
+    return result.rows[0];
+  });
+  if (!row) throw new HttpError(404, 'Site settings not found');
+  return c.json(row);
+});
+
+adminRoutes.put('/site-status', async (c) => {
+  const body = parseOrThrow(siteStatusWriteSchema, await readJson(c));
+  const row = await withDb(c.env, async (db) => {
+    const result = await db.query(
+      `UPDATE site_settings SET maintenance_mode = $1, maintenance_message = $2, updated_at = now()
+       WHERE id = 1 RETURNING ${SITE_STATUS_ADMIN}`,
+      [body.maintenance_mode, body.maintenance_message],
+    );
+    return result.rows[0];
+  });
+  if (!row) throw new HttpError(404, 'Site settings not found');
   return c.json(row);
 });
 

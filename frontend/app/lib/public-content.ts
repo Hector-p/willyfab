@@ -175,3 +175,21 @@ export async function getPublicGallery(): Promise<PageContent<GalleryItem>> {
     return unavailable(galleryPreview);
   }
 }
+
+export type SiteStatus = { maintenance: boolean; message: string | null };
+
+type ApiSiteStatus = { maintenance_mode: boolean; maintenance_message: string | null };
+
+const SITE_OPEN: SiteStatus = { maintenance: false, message: null };
+
+/** Fails open: if the status cannot be read, the public site stays visible. */
+export async function getSiteStatus(): Promise<SiteStatus> {
+  if (!apiBase) return SITE_OPEN;
+  try {
+    const result = await request<ApiSiteStatus>("/site-status");
+    return { maintenance: result.maintenance_mode === true, message: result.maintenance_message };
+  } catch {
+    return SITE_OPEN;
+  }
+}
+

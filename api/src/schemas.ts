@@ -114,6 +114,11 @@ export const inquiryStatusUpdateSchema = z.strictObject({
   status: inquiryStatusSchema,
 });
 
+export const siteStatusWriteSchema = z.strictObject({
+  maintenance_mode: z.boolean(),
+  maintenance_message: z.string().trim().min(1).max(300),
+});
+
 export const loginSchema = z.strictObject({
   email: text(3, 254),
   password: text(1, 512),

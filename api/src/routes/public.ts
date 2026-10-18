@@ -18,6 +18,19 @@ const ENQUIRY_RATE_LIMIT_MESSAGE =
 
 export const publicRoutes = new Hono<AppEnv>();
 
+publicRoutes.get('/site-status', async (c) => {
+  const row = await withDb(c.env, async (db) => {
+    const result = await db.query(
+      'SELECT maintenance_mode, maintenance_message FROM site_settings WHERE id = 1',
+    );
+    return result.rows[0];
+  });
+  return c.json({
+    maintenance_mode: row?.maintenance_mode ?? false,
+    maintenance_message: row?.maintenance_message ?? null,
+  });
+});
+
 publicRoutes.get('/services', async (c) => {
   const query = parseOrThrow(
     z.object({ limit: intQuery(1, 100, 50), offset: offsetQuery(), category: optionalTextQuery() }),

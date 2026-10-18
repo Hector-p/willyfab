@@ -1,0 +1,46 @@
+.maintenance {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: var(--wf-gutter);
+  background: var(--wf-forest);
+  color: var(--wf-white);
+  text-align: center;
+}
+
+.maintenance-inner {
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+  max-width: 520px;
+}
+
+.maintenance-logo {
+  width: 64px;
+  height: 64px;
+}
+
+.maintenance-kicker {
+  margin: 0;
+  font-family: var(--wf-display);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--wf-orange-soft);
+}
+
+.maintenance-message {
+  margin: 0;
+  font-family: var(--wf-font-body);
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--wf-white);
+}
+
+.maintenance-rule {
+  width: 56px;
+  height: 2px;
+  background: var(--wf-orange);
+}
