@@ -471,6 +471,27 @@
 @media (max-width: 640px) {
   .service-card-grid {
     grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .service-card {
+    gap: 12px;
+    min-height: 0;
+    padding: 22px 20px 20px;
+    border-radius: 18px;
+  }
+
+  .service-card-number {
+    font-size: 11px;
+  }
+
+  .service-card h3 {
+    font-size: 24px;
+  }
+
+  .service-card p {
+    font-size: 14px;
+    line-height: 1.6;
   }
 
   .services-categories {
@@ -486,11 +507,23 @@
   }
 
   .services-hero-image {
-    height: 340px;
+    height: 220px;
   }
 
   .service-detail-photo {
-    border-radius: 22px;
+    border-radius: 16px;
+  }
+
+  .service-hero h1 {
+    font-size: 40px;
+  }
+
+  .service-body-aside h2 {
+    font-size: 30px;
+  }
+
+  .service-related-heading h2 {
+    font-size: 28px;
   }
 }
 
