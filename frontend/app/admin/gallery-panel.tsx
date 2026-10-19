@@ -39,7 +39,7 @@ function toValues(record: GalleryRecord | null): GalleryValues {
     caption: record?.caption ?? "",
     featured: record?.featured ?? false,
     sort_order: String(record?.sort_order ?? 0),
-    is_published: record?.is_published ?? false,
+    is_published: record?.is_published ?? true,
   };
 }
 
