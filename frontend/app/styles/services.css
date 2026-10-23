@@ -400,7 +400,7 @@
   height: clamp(340px, 46vw, 580px);
   margin: 0 auto;
   border-radius: 32px;
-  background: #424c45 url("/willyfab-workshop.jpg") center / cover no-repeat;
+  background: #424c45 url("/images/hero-03-industrial.jpg") center / cover no-repeat;
   overflow: hidden;
   box-shadow: 0 40px 90px -50px rgba(16, 43, 36, 0.6);
 }
